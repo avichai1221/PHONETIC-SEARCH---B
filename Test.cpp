@@ -3,7 +3,7 @@
  * Use this as a basis to build a more complete Test.cpp file.
  *
  * IMPORTANT: Please write more tests - the tests here are only for example and are not complete.
- *
+ *AUTHORS: Avichai and Tal
  * Date: 2020-02
  */
 
@@ -135,7 +135,20 @@ TEST_CASE("Test replacement of d and t") {
             CHECK(find(text1, "TeaTpool") == string("deadpool"));
 
 }
+TEST_CASE("exception test") {
+    string text1 = "home yyy";
+            CHECK_THROWS(find(text1, "ho"));
+            CHECK_THROWS(find(text1, "me"));
+            CHECK_THROWS(find(text1, "homerr"));
+            CHECK_THROWS(find(text1, "om"));
+            CHECK_THROWS(find(text1, "avt"));
+            CHECK_THROWS(find(text1, ""));
+    string text2 = "";
+            CHECK_THROWS(find(text2, "ho"));
+            CHECK_THROWS(find(text2, "homr"));
+            CHECK_THROWS(find(text2, ""));
 
+}
 
     TEST_CASE("Test for All kinds of") {
     string text1 = "xxx vacation";

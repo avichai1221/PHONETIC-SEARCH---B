@@ -1,8 +1,7 @@
 //
-// Created by avichai on 3/22/20.
+// AUTHORS: Avichai and Tal
 //
 
-#include <iostream>
 #include <stdexcept>
 
 #include "PhoneticFinder.hpp"
@@ -10,25 +9,49 @@ using namespace std;
 
 
 namespace phonetic {
-   /* string find(string text, string s) {
+    string find(string text, string s) {
+
         for (int i = 0; i < text.length(); i++) {
             int j = 0;
             while (text[i] != ' '||j == s.length()) {
                 if (j != s.length()) {
-                    if (s[j] == text[i]) {
+                    if ((s[j] == text[i])||(s[j] == text[i]+32)||(s[j]+32 == text[i])) {
                         j++;
                         i++;
                     }
-                    else if (((s[j] == 't' && text[i] == 'd') || (s[j] == 'd' && text[i] == 't'))) {
+                    else if (((s[j] == 't' && text[i] == 'd') || (s[j] == 'd' && text[i] == 't')|| (s[j] == 'T' && text[i] == 'd') || (s[j] == 'd' && text[i] == 'T')||(s[j] == 'D' && text[i] == 'T') || (s[j] == 'T' && text[i] == 'D')||
+                            (s[j] == 'D' && text[i] == 't') || (s[j] == 't' && text[i] == 'D')||(s[j]=='b'&&(text[i]=='f'||text[i]=='p'||text[i]=='P'||text[i]=='F'))||(s[j]=='f'&&(text[i]=='b'||text[i]=='p'||text[i]=='B'||text[i]=='P'))||
+                            (s[j]=='p'&&(text[i]=='b'||text[i]=='B'||text[i]=='F'||text[i]=='f'))||(s[j]=='P'&&(text[i]=='b'||text[i]=='F'||text[i]=='B'||text[i]=='f'))||(s[j]=='B'&&(text[i]=='F'||text[i]=='p'||text[i]=='f'||text[i]=='P'))||
+                            (s[j]=='F'&&(text[i]=='b'||text[i]=='p'||text[i]=='B'||text[i]=='P')))) {
+                        j++;
+                        i++;
+                    }
+                    else if (((s[j] == 'v' && text[i] == 'w') || (s[j] == 'w' && text[i] == 'v')|| (s[j] == 'V' && text[i] == 'w') || (s[j] == 'w' && text[i] == 'V')||(s[j] == 'W' && text[i] == 'V') || (s[j] == 'V' && text[i] == 'W')||
+                              (s[j] == 'W' && text[i] == 'v') || (s[j] == 'v' && text[i] == 'W')||(s[j]=='q'&&(text[i]=='c'||text[i]=='k'||text[i]=='K'||text[i]=='C'))||(s[j]=='c'&&(text[i]=='q'||text[i]=='k'||text[i]=='Q'||text[i]=='K'))||
+                              (s[j]=='k'&&(text[i]=='q'||text[i]=='Q'||text[i]=='C'||text[i]=='c'))||(s[j]=='K'&&(text[i]=='q'||text[i]=='C'||text[i]=='Q'||text[i]=='c'))||(s[j]=='Q'&&(text[i]=='C'||text[i]=='k'||text[i]=='c'||text[i]=='K'))||
+                              (s[j]=='C'&&(text[i]=='q'||text[i]=='k'||text[i]=='Q'||text[i]=='K')))){
+                        j++;
+                        i++;
+                    }
+                    else if (((s[j] == 'g' && (text[i] == 'j'||text[i] == 'J')) || (s[j] == 'j' && (text[i] == 'g'||text[i] == 'G'))|| (s[j] == 'G' && (text[i] == 'J'|| text[i] == 'j')) || (s[j] == 'J' && (text[i] == 'G'||text[i]=='g'))||
+                              (s[j] == 'z' && (text[i] == 's'||text[i] == 'S')) || (s[j] == 's' && (text[i] == 'z'||text[i]=='Z'))|| (s[j] == 'Z' && (text[i] == 'S'|| text[i] == 's'))|| (s[j] == 'S' && (text[i] == 'Z'|| text[i] == 'z'))  ))  {
+                        j++;
+                        i++;
+                    }
+                    else if (((s[j] == 'o' && (text[i] == 'u'||text[i] == 'U')) || (s[j] == 'u' && (text[i] == 'o'||text[i] == 'O'))|| (s[j] == 'U' && (text[i] == 'O'|| text[i] == 'o')) || (s[j] == 'O' && (text[i] == 'U'||text[i]=='u'))||
+                            (s[j] == 'i' && (text[i] == 'y'||text[i] == 'Y')) || (s[j] == 'y' && (text[i] == 'i'||text[i]=='I'))|| (s[j] == 'I' && (text[i] == 'Y'|| text[i] == 'y'))|| (s[j] == 'Y' && (text[i] == 'I'|| text[i] == 'i'))  )) {
                         j++;
                         i++;
                     }
                     else {
                         j = 0;
                         i = space2(text, i);
+                        if(i==-1) throw std::out_of_range ("Did not find the word "+s+" in the text");
                     }
                 }
                 else{
+                    if(i<text.length())
+                        if(text[i]!=' ') throw std::out_of_range ("Did not find the word "+s+" in the text");
                     int indexHelp=i-s.length();
                     string ans="";
                     for(int k=indexHelp,j=0;j<s.length();k++,j++) {
@@ -41,22 +64,21 @@ namespace phonetic {
 
             }
         }
+        throw  std::out_of_range  ("Did not find the word "+s+" in the text");
             }
+
     int space2(string text, int index) {
         for (int i = index; i < text.length(); i++) {
             if (text[i] == ' ') return i;
 
         }
         return -1;
+
     }
 
 
-
-
-        */
-
 ////////////////////////////////////////////////////////////////////////////////////
-        bool equal(string a,string b){
+      /*  bool equal(string a,string b){
             for(int i=0; i<a.length(); i++){
                 if(a[i]!=b[i])
                     return false;
@@ -248,6 +270,6 @@ namespace phonetic {
             }
 
             return temp;
-		return temp;
-        }
+
+        }*/
 }

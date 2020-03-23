@@ -1,5 +1,5 @@
 //
-// Created by avichai on 3/22/20.
+// Created by avichai  and Tal on 3/22/20.
 //
 
 #ifndef FIRSTTIRGOL_PHONETICFINDER_HPP
@@ -13,5 +13,6 @@
 namespace phonetic{
 
     std::string find(std::string a ,std::string b);
-
+    bool equal(std::string a,std::string b);
+    int space2(std::string text, int i);
 };
