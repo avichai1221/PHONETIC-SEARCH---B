@@ -14,6 +14,7 @@ s=help(s);
         for (int i = 0; i < text.length(); i++) {
             int j = 0;
             while (text[i] != ' '||j == s.length()) {
+                if(text==" ")   throw  std::out_of_range  ("Did not find the word "+s+" in the text");
                 if (j != s.length()) {
                     if ((s[j] == text[i])||(s[j] == text[i]+32)||(s[j]+32 == text[i])) {
                         j++;
