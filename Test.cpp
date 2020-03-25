@@ -28,6 +28,21 @@ TEST_CASE("Test replacement of p and b or p and f") {
             CHECK(find(text, "hafpy") == string("happy"));
     }
 
+TEST_CASE("space tests") {
+    string text = "     happy";
+    string text1 = "   happy     ";
+    string text2 = "  happy   ";
+    string text3 = "happy";
+            CHECK(find(text1, "happy") == string("happy"));
+            CHECK(find(text2, "happy") == string("happy"));
+            CHECK(find(text, "happy") == string("happy"));
+
+            CHECK(find(text3, "happy    ") == string("happy"));
+            CHECK(find(text3, "   happy") == string("happy"));
+
+}
+
+
 TEST_CASE("Test replacement of lower-case and upper-case") {
     string text = "Happi xxx yyy";
     string text1 = "IRONman xxx yyy";

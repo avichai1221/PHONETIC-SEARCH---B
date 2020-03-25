@@ -10,9 +10,13 @@
 
 #include <iostream>
 
-namespace phonetic{
+namespace phonetic {
 
-    std::string find(std::string a ,std::string b);
-    bool equal(std::string a,std::string b);
+    std::string find(std::string a, std::string b);
+
+    bool equal(std::string a, std::string b);
+
     int space2(std::string text, int i);
-};
+
+    std::string help(std::string s);
+}

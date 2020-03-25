@@ -10,7 +10,7 @@ using namespace std;
 
 namespace phonetic {
     string find(string text, string s) {
-
+s=help(s);
         for (int i = 0; i < text.length(); i++) {
             int j = 0;
             while (text[i] != ' '||j == s.length()) {
@@ -74,6 +74,14 @@ namespace phonetic {
         }
         return -1;
 
+    }
+    string help (string s){
+        string ans;
+        for(int i=0;i<s.length();i++){
+          if(s[i]!=' ')
+              ans=ans+s[i];
+        }
+        return ans;
     }
 
 
