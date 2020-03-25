@@ -52,7 +52,11 @@ s=help(s);
                 }
                 else{
                     if(i<text.length())
-                        if(text[i]!=' ') throw std::out_of_range ("Did not find the word "+s+" in the text");
+                        if(text[i]!=' '){
+                            j = 0;
+                            i = space2(text, i);
+                            if(i==-1) throw std::out_of_range ("Did not find the word "+s+" in the text");
+                        }
                     int indexHelp=i-s.length();
                     string ans="";
                     for(int k=indexHelp,j=0;j<s.length();k++,j++) {
