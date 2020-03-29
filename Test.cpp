@@ -152,7 +152,7 @@ TEST_CASE("Test replacement of d and t") {
 }
 TEST_CASE("exception test") {
     string text1 = "home yyy";
-            CHECK_THROWS(find(text1, "ho"));
+          
             CHECK_THROWS(find(text1, "me"));
             CHECK_THROWS(find(text1, "homerr"));
             CHECK_THROWS(find(text1, "om"));
